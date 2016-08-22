@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean id="userBean" class="cn.lonecloud.bean.step08iocfieldbyProperty.UserBean">
+		<!-- 第一种方法 -->
+		<!-- <property name="userName" value="lonecloud"></property> <property 
+			name="age" value="10"></property> <property name="address" value="nanchang"></property> -->
+		<!-- 第二种方法 -->
+		<property name="userName">
+			<value>lonecloud</value>
+		</property>
+		<property name="age">
+			<value>10</value>
+		</property>
+		<property name="address">
+			<value>nanchang</value>
+		</property>
+	</bean> 
+	<!-- 第三种 	需要加入xmlns:p="http://www.springframework.org/schema/p" -->
+<!-- 	<bean class="cn.lonecloud.bean.step08iocfieldbyProperty.UserBean"
+		p:userName="lonecloud" p:age="120"></bean> -->
+
+</beans>

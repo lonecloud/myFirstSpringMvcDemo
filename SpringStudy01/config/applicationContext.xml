@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+	<!-- 配置bean的class -->
+	<bean id="helloWorld" class="cn.lonecloud.bean.step01.HelloWorld">
+		<property name="name" value="123"></property>
+	</bean>
+	<!-- 配置对应的help类用于获取相对应bean实例 -->
+	<bean id="beanhelper" class="cn.lonecloud.bean.step02.helper.BeanHelper">
+		<!-- 设置Help类里面的属性值 ref是指的的下面的bean的实例的名字 -->
+		<property name="bean" ref="englishBean"></property>
+	</bean>
+	<!-- 配置bean实现类 -->
+	<bean id="englishBean" class="cn.lonecloud.bean.step02.EnglishBean"></bean>
+	<bean id="chineseBean" class="cn.lonecloud.bean.step02.ChineseBean"></bean>
+	
+	<!-- step05 -->
+	<bean id="beanHelp" class="cn.lonecloud.bean.step05byioc.helper.BeanHelper">
+		<!-- 在help类中设置set方法进行注入 -->
+		<property name="bean" >
+			<ref bean="chineseBean05"/>
+		</property> 
+		<!-- 使用constructor构造函数进行注入 -->
+		<constructor-arg>
+			<bean class="cn.lonecloud.bean.step05byioc.ChineseBean"></bean>
+		</constructor-arg>
+	</bean>
+	<bean id="chineseBean05" class="cn.lonecloud.bean.step05byioc.ChineseBean"></bean>
+	<!-- step06 -->
+	<bean id="user" class="cn.lonecloud.bean.step06iocfield.UserBean">
+		<!-- 使用构造函数进行赋值 -->
+		<constructor-arg>
+			<value type="java.lang.String">lonecloud</value>
+		</constructor-arg>
+		<constructor-arg>
+			<value type="java.lang.String">江西</value>
+		</constructor-arg>
+		<constructor-arg>
+			<value type="java.lang.Integer">22</value>
+		</constructor-arg>
+	</bean>
+</beans>

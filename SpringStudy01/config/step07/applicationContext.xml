@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<import resource="Beans.xml"/>
+	<bean id="beanHelper" class="cn.lonecloud.bean.step07byImport.Helper.BeanHelper">
+		<property name="bean" >
+			<!-- 这里的bean是这个Spring的实例如果是同一个文件内的话也可以用 -->
+			<!-- <ref local="beanHelper"/> 只能用于同一个文件-->
+			<ref bean="chineseBean"/>
+		</property>
+	</bean>
+</beans>
